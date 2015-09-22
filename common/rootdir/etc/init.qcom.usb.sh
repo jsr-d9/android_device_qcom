@@ -106,7 +106,7 @@ case "$usb_config" in
                     ;;
                 esac
             ;;
-            "msm7627a" | "msm8625")
+            "msm7627a" | "msm8625" | "msm8625_d9"  | "msm8625_d9c" | "msm8625_i6" | "msm8625_i6c"  | "msm8625_i6c_smartfren")
                 setprop persist.sys.usb.config mtp,diag,serial_smd,serial_tty,rmnet_smd,mass_storage,serial_smd,adb
             ;;
             * )
@@ -134,7 +134,7 @@ target=`getprop ro.product.device`
 cdromname="/system/etc/cdrom_install.iso"
 cdromenable=`getprop persist.service.cdrom.enable`
 case "$target" in
-        "msm7627a" | "msm8625")
+        "msm7627a" | "msm8625" | "msm8625_d9" | "msm8625_d9c" | "msm8625_i6" | "msm8625_i6c"  | "msm8625_i6c_smartfren")
                 case "$cdromenable" in
                         0)
                                 echo "" > /sys/class/android_usb/android0/f_mass_storage/lun0/file

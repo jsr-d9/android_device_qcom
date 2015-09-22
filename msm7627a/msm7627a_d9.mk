@@ -58,12 +58,14 @@ PRODUCT_PACKAGES += $(PACKAGES_FASTMMI)
 
 #QRDSensors
 QRDSensors := sensors.$(TARGET_PRODUCT)
-#QRDSensors += sensors.msm7627a_sku7
-#QRDSensors += sensors.msm8x25q_skud
+QRDSensors += sensors.msm7627a_sku7
+QRDSensors += sensors.msm8x25q_skud
 QRDSensors += libmllite
 QRDSensors += libmlplatform
 QRDSensors += libmplmpu
 QRDSensors += akmdfs
+#linxc add sensord for build
+QRDSensors += sensord
 PRODUCT_PACKAGES += $(QRDSensors)
 
 PRODUCT_PACKAGES += FastBoot \

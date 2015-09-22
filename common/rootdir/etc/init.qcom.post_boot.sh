@@ -30,7 +30,7 @@ target=`getprop ro.board.platform`
 case "$target" in
     "msm7201a_ffa" | "msm7201a_surf" | "msm7627_ffa" | "msm7627_6x" | "msm7627a"  | "msm7627_surf" | \
     "qsd8250_surf" | "qsd8250_ffa" | "msm7630_surf" | "msm7630_1x" | "msm7630_fusion" | "qsd8650a_st1x" | \
-    "msm8625")
+    "msm8625" | "msm8625_d9" | "msm8625_d9c" | "msm8625_i6" | "msm8625_i6c" | "msm8625_i6c_smartfren")
         echo "ondemand" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
         echo 90 > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold
         ;;
@@ -50,13 +50,13 @@ case "$target" in
 esac
 
 case "$target" in
-     "msm7201a_ffa" | "msm7201a_surf" | "msm7627_ffa" | "msm7627_6x" | "msm7627_surf" | "msm7630_surf" | "msm7630_1x" | "msm7630_fusion" | "msm7627a" | "msm8625")
+     "msm7201a_ffa" | "msm7201a_surf" | "msm7627_ffa" | "msm7627_6x" | "msm7627_surf" | "msm7630_surf" | "msm7630_1x" | "msm7630_fusion" | "msm7627a" | "msm8625" | "msm8625_d9" | "msm8625_d9c" | "msm8625_i6" | "msm8625_i6c" | "msm8625_i6c_smartfren")
         echo 245760 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
         ;;
 esac
 
 case "$target" in
-    "msm7627a" | "msm8625")
+    "msm7627a" | "msm8625" | "msm8625_d9" | "msm8625_d9c" | "msm8625_i6" | "msm8625_i6c" | "msm8625_i6c_smartfren")
 	 echo 1 > /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy
 	 ;;
 esac
@@ -216,7 +216,7 @@ case "$target" in
     "msm8960" | "msm8660" | "msm7630_surf")
         echo 10 > /sys/devices/platform/msm_sdcc.3/idle_timeout
         ;;
-    "msm7627a" | "msm8625")
+    "msm7627a" | "msm8625" | "msm8625_d9" | "msm8625_d9c" | "msm8625_i6" | "msm8625_i6c" | "msm8625_i6c_smartfren")
         echo 10 > /sys/devices/platform/msm_sdcc.1/idle_timeout
         ;;
 esac
@@ -226,7 +226,7 @@ case "$target" in
     "msm8660" | "msm8960")
         start mpdecision
     ;;
-    "msm7627a" | "msm8625")
+    "msm7627a" | "msm8625" | "msm8625_d9" | "msm8625_d9c" | "msm8625_i6" | "msm8625_i6c" | "msm8625_i6c_smartfren")
         soc_id=`cat /sys/devices/system/soc/soc0/id`
         case "$soc_id" in
             "127" | "128" | "129" | "137" | "167" | "168" | "169" | "170" )
@@ -239,7 +239,7 @@ esac
 
 # Enable Power modes and set the CPU Freq Sampling rates
 case "$target" in
-     "msm7627a" | "msm8625")
+     "msm7627a" | "msm8625" | "msm8625_d9" | "msm8625_d9c" | "msm8625_i6" | "msm8625_i6c" | "msm8625_i6c_smartfren")
         start qosmgrd
 	echo 1 > /sys/module/pm2/modes/cpu0/standalone_power_collapse/idle_enabled
 	echo 1 > /sys/module/pm2/modes/cpu1/standalone_power_collapse/idle_enabled
@@ -255,7 +255,7 @@ esac
 
 # Change adj level and min_free_kbytes setting for lowmemory killer to kick in
 case "$target" in
-     "msm7627a" | "msm8625")
+     "msm7627a" | "msm8625" | "msm8625_d9" | "msm8625_d9c" | "msm8625_i6" | "msm8625_i6c" | "msm8625_i6c_smartfren")
 	echo 0,1,2,4,9,12 > /sys/module/lowmemorykiller/parameters/adj
 	echo 5120 > /proc/sys/vm/min_free_kbytes
      ;;

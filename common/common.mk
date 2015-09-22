@@ -4,6 +4,11 @@ QCOM_BOARD_PLATFORMS := msm7627_surf
 QCOM_BOARD_PLATFORMS += msm7627_6x
 QCOM_BOARD_PLATFORMS += msm7627a
 QCOM_BOARD_PLATFORMS += msm8625
+QCOM_BOARD_PLATFORMS += msm8625_d9
+QCOM_BOARD_PLATFORMS += msm8625_d9c
+QCOM_BOARD_PLATFORMS += msm8625_i6
+QCOM_BOARD_PLATFORMS += msm8625_i6c
+QCOM_BOARD_PLATFORMS += msm8625_i6c_smartfren
 QCOM_BOARD_PLATFORMS += msm7630_surf
 QCOM_BOARD_PLATFORMS += msm7630_fusion
 QCOM_BOARD_PLATFORMS += msm8660
@@ -557,7 +562,8 @@ include frameworks/base/data/videos/VideoPackage1.mk
 # For PRODUCT_COPY_FILES, the first instance takes precedence.
 # Since we want use QC specific files, we should inherit
 # device-vendor.mk first to make sure QC specific files gets installed.
-$(call inherit-product-if-exists, vendor/qcom/proprietary/common/config/device-vendor.mk)
+#$(call inherit-product-if-exists, vendor/qcom/proprietary/common/config/device-vendor.mk)
+$(call inherit-product-if-exists, vendor/qcom/JSR/D9/common/config/device-vendor.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 include build/buildplus/target/QRDExt_target.min
